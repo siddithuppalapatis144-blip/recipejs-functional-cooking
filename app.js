@@ -187,7 +187,7 @@ const RecipeApp = (() => {
         return steps.map(step => {
             if (typeof step === 'string') {
                 // Base case: simple string step
-                return `<li class="step" style="margin-left: ${level * 20}px;">${step}</li>`;
+                return <li class="step" style="margin-left: ${level * 20}px;">${step}</li>;
             } else if (step.substeps) {
                 // Recursive case: step with substeps
                 const substepsHTML = renderStepsRecursive(step.substeps, level + 1);
@@ -208,7 +208,7 @@ const RecipeApp = (() => {
     const createRecipeCard = (recipe) => {
         const stepsHTML = renderStepsRecursive(recipe.steps);
         const ingredientsHTML = recipe.ingredients
-            .map(ing => `<li>${ing}</li>`)
+            .map(ing => <li>${ing}</li>)
             .join('');
 
         return `
